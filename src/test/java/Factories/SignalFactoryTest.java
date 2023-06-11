@@ -7,6 +7,7 @@ import org.reflections.Reflections;
 import java.util.HashSet;
 import java.util.Set;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SignalFactoryTest {
@@ -15,7 +16,7 @@ public class SignalFactoryTest {
     public void assertUniqueId() {
         Set<Integer> idClassSet = new HashSet<>();
 
-        Reflections reflections = new Reflections("MerchantSolutions");
+        Reflections reflections = new Reflections("Signals");
         Set<Class<? extends Signal>> classes;
         classes = reflections.getSubTypesOf(Signal.class);
 
@@ -27,5 +28,7 @@ public class SignalFactoryTest {
 
             }
         }
+
+        assertEquals(idClassSet.size(), 4);
     }
 }
