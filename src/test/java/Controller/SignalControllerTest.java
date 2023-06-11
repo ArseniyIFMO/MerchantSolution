@@ -21,6 +21,7 @@ public class SignalControllerTest {
 
     @Autowired
     private WebApplicationContext webApplicationContext;
+
     @Autowired
     private MockMvc mockMvc;
 

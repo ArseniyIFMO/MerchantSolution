@@ -13,7 +13,7 @@ class SignalController {
     Application application;
 
     @PostMapping("/main/{signal}")
-    public String main3(@PathVariable String signal) {
+    public String main(@PathVariable String signal) {
         try {
             int x = Integer.valueOf(signal);
             application.handleSignal(x);

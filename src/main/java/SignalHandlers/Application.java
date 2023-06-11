@@ -13,7 +13,7 @@ public class Application implements SignalHandler {
 
     public void handleSignal(int signal) {
         System.out.println("Getting signal");
-        System.out.println("Sygnal is" + signal);
+        System.out.println("Signal is" + signal);
         Signal signal1 = factory.getSignal(signal);
         signal1.executeSignal(new Algo());
     }

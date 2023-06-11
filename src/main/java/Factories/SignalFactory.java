@@ -36,10 +36,11 @@ public class SignalFactory {
         Signal signal = null;
         try {
             signal = (Signal) idClassMap.getOrDefault(signalId, DefaultSignal.class).getConstructor().newInstance();
-            if (signal != null)
+            if (signal != null) {
                 System.out.println("Successfully get signal");
-            else
+            } else {
                 System.out.println("Get Signal null");
+            }
         } catch (Exception e) {
 
         }
