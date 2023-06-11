@@ -1,6 +1,10 @@
 package Factories;
 
+import Signals.DefaultSignal;
 import Signals.Signal;
+import Signals.Signal1;
+import org.assertj.core.api.Assertions;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.reflections.Reflections;
 
@@ -11,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SignalFactoryTest {
-    // Assert that every added alghorithm has unique Ids
+    // Assert that every added algorithm has unique Ids
     @Test
     public void assertUniqueId() {
         Set<Integer> idClassSet = new HashSet<>();
@@ -30,5 +34,16 @@ public class SignalFactoryTest {
         }
 
         assertEquals(idClassSet.size(), 4);
+    }
+
+    @Test
+    public void testGetSignal() {
+        SignalFactory factory = new SignalFactory();
+        Signal signal1 = factory.getSignal(1);
+        Assertions.assertThat(signal1).isInstanceOf(Signal1.class);
+
+        Signal signal2 = factory.getSignal(100);
+        Assertions.assertThat(signal2).isInstanceOf(DefaultSignal.class);
+
     }
 }

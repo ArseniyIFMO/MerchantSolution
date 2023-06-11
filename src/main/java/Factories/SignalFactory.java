@@ -1,6 +1,7 @@
 package Factories;
 
 
+import Signals.DefaultSignal;
 import Signals.Signal;
 import org.reflections.Reflections;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,6 @@ public class SignalFactory {
 
     public SignalFactory() {
         idClassMap = new HashMap<>();
-
 
         Reflections reflections = new Reflections("Signals");
         Set<Class<? extends Signal>> classes;
@@ -35,11 +35,11 @@ public class SignalFactory {
     public Signal getSignal(int signalId) {
         Signal signal = null;
         try {
-            signal = (Signal) idClassMap.get(signalId).getConstructor().newInstance();
+            signal = (Signal) idClassMap.getOrDefault(signalId, DefaultSignal.class).getConstructor().newInstance();
             if (signal != null)
-                System.out.println("Succesfully get signal");
+                System.out.println("Successfully get signal");
             else
-                System.out.println("Get Sygnal null");
+                System.out.println("Get Signal null");
         } catch (Exception e) {
 
         }
