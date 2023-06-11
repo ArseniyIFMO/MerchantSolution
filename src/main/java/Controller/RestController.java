@@ -1,6 +1,7 @@
 package Controller;
 
 import SignalHandlers.Application;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,11 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 class RestController {
 
+    @Autowired
     Application application;
-
-    RestController() {
-        application = new Application();
-    }
 
     @PostMapping("/main/{signal}")
     public String main3(@PathVariable String signal) {

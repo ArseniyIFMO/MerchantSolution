@@ -3,8 +3,6 @@ package Factories;
 
 import Signals.Signal;
 import org.reflections.Reflections;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 
@@ -15,9 +13,6 @@ import java.util.Set;
 @Service
 public class SignalFactory {
     Map<Integer, Class> idClassMap;
-
-    @Autowired
-    ApplicationContext applicationContext;
 
     public SignalFactory() {
         idClassMap = new HashMap<>();
