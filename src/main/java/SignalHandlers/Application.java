@@ -15,7 +15,8 @@ public class Application implements SignalHandler {
         System.out.println("Getting signal");
         System.out.println("Signal is" + signal);
         Signal signal1 = factory.getSignal(signal);
-        signal1.executeSignal(new Algo());
+        if(signal1 != null)
+            signal1.executeSignal(new Algo());
     }
 
 }
